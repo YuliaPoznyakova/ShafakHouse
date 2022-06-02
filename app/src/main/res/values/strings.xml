@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ShafakHouse</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_dishes">Choose Dishes!</string>
+    <string name="availability">Cat ate all the dishes. No dishes available.</string>
+    <string name="chosen_dishes">You have chosen:</string>
+    <string name="quantity">Quantity:</string>
+    <string name="needed_date">Date:</string>
+    <string name="send">Send to Yulia</string>
+    <string name="cancel">Cancel</string>
+    <string name="order_details">Quantity: %1$s cupcakes \n Pickup date: %2$s \n
+        Total: %3$s \n\n Thank you!</string>
+    <string name="new_dish_order">New Dish Order</string>
+    <string name="total_price">Total Price</string>
+    <string name="in_stock">In stock: </string>
+    <string name="purchase">Purchase</string>
+    <string name="your_order_text">Your Order: </string>
+
+
+
+</resources>
