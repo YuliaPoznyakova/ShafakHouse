@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "518124100005",
+    "project_id": "shafakhouse",
+    "storage_bucket": "shafakhouse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518124100005:android:190a3818b7a9093031704c",
+        "android_client_info": {
+          "package_name": "com.example.shafakhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518124100005-c16h0ou8gt5m1ajk9s7eisun3hd6tes0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATqHvj2oWV2SvOCn_LF0LK8gzwdU7XxZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518124100005-c16h0ou8gt5m1ajk9s7eisun3hd6tes0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

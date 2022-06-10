@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.material.card.MaterialCardView
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_margin="8dp"
-app:cardElevation="4dp"
-app:cardCornerRadius="4dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MenuItemAdapter">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="dish"
+            type="com.example.shafakhouse.model.Dish" />
+    </data>
+
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/menu_item_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
 
     <ImageView
         android:id="@+id/item_image"
@@ -24,16 +28,17 @@ app:cardCornerRadius="4dp">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_pending" />
+        app:srcCompat="@drawable/image_pending"
+        app:imageUrl="@{dish.imgSrcUrl}"/>
 
     <TextView
         android:id="@+id/item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/availability"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:padding="8dp"
+        android:text="@{dish.name}"
         app:layout_constraintBottom_toTopOf="@+id/checkDishBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +57,12 @@ app:cardCornerRadius="4dp">
         android:id="@+id/spicy_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="@{dish.spicy ? View.VISIBLE : View.GONE}"
         app:layout_constraintBottom_toBottomOf="@+id/veggie_image_view"
         app:layout_constraintEnd_toStartOf="@+id/veggie_image_view"
         app:layout_constraintStart_toEndOf="@+id/checkDishBox"
-        app:layout_constraintTop_toTopOf="@+id/veggie_image_view" />
+        app:layout_constraintTop_toTopOf="@+id/veggie_image_view"
+        app:srcCompat="@drawable/ic_spicy_image" />
 
     <ImageView
         android:id="@+id/veggie_image_view"
@@ -64,9 +71,11 @@ app:cardCornerRadius="4dp">
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkDishBox" />
+        android:visibility="@{dish.veggie ? View.VISIBLE : View.GONE}"
+        app:layout_constraintTop_toTopOf="@+id/checkDishBox"
+        app:srcCompat="@drawable/ic_veggie_image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</layout>

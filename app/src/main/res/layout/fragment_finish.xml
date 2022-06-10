@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     tools:text="6 dishes"
-                    android:text="@{viewModel.quantity.toString()}" />
+                    android:text="0" />
 
                 <TextView
                     android:id="@+id/your_order_label"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     tools:text="sorry, sorry"
-                    android:text="@{viewModel.typeDish.toString()}" />
+                    android:text="0" />
 
                 <TextView
                     android:id="@+id/pickup_label"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     tools:text="Sunday"
-                    android:text="@{viewModel.date}" />
+                    android:text="0" />
 
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="8dp"
                     tools:text="Total $5.00"
-                    android:text="@{@string/total_price(viewModel.price)}" />
+                    android:text="0" />
 
             </LinearLayout>
 
@@ -93,8 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/send"
-                android:onClick="@{() -> finishFragment.sendOrder()}" />
+                android:text="@string/send" />
 
 
             <Button
@@ -103,8 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/cancel"
-                android:onClick="@{() -> finishFragment.cancelOrder()}"/>
+                android:text="@string/cancel" />
 
         </LinearLayout>
     </ScrollView>

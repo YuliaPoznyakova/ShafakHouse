@@ -1,9 +1,9 @@
 package com.example.shafakhouse.model
 
-import androidx.annotation.DrawableRes
+import com.squareup.moshi.Json
 
 data class Dish(
-    @DrawableRes val imageResourceId: Int,
+    @Json(name = "image") val imgSrcUrl: String,
     val name: String,
     val price: Int,
     val spicy: Boolean,

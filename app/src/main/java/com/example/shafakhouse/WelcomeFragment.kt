@@ -1,16 +1,11 @@
 package com.example.shafakhouse
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.shafakhouse.databinding.FragmentMenuBinding
-import com.example.shafakhouse.model.OrderViewModel
 import com.example.shafakhouse.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
@@ -39,10 +34,4 @@ class WelcomeFragment : Fragment() {
     fun goToNextScreen() {
         findNavController().navigate(R.id.action_welcomeFragment_to_menuFragment)
     }
-
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-    //       binding = null
-//    }
-
 }
