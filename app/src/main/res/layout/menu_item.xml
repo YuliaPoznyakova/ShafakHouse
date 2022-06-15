@@ -10,6 +10,15 @@
         <variable
             name="dish"
             type="com.example.shafakhouse.model.Dish" />
+        <variable
+            name="viewModel"
+            type="com.example.shafakhouse.model.OrderViewModel" />
+        <variable
+            name="menuFragment"
+            type="com.example.shafakhouse.MenuFragment" />
+        <variable
+            name="clickListener"
+            type="com.example.shafakhouse.adapter.DishListener" />
     </data>
 
 
@@ -51,7 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="@{() -> clickListener.onClick(dish, checkDishBox)}" />
 
     <ImageView
         android:id="@+id/spicy_image_view"

@@ -10,7 +10,7 @@
     <string name="send">Send to Yulia</string>
     <string name="cancel">Cancel</string>
     <string name="order_details">Quantity: %1$s cupcakes \n Pickup date: %2$s \n
-        Total: %3$s \n\n Thank you!</string>
+        \n\n Thank you!</string>
     <string name="new_dish_order">New Dish Order</string>
     <string name="total_price">Total Price</string>
     <string name="in_stock">In stock: </string>

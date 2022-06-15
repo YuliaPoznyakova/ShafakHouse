@@ -3,6 +3,7 @@ package com.example.shafakhouse.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,17 +13,15 @@ import com.example.shafakhouse.databinding.MenuItemBinding
 import com.example.shafakhouse.model.Dish
 
 
-class MenuItemAdapter:
+class MenuItemAdapter(val clickListener: DishListener):
     ListAdapter<Dish, MenuItemAdapter.MenuItemViewHolder>(DiffCallback) {
 
     class MenuItemViewHolder(
-        private var view: View,
         private var binding: MenuItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        val veggieImageView: ImageView = view.findViewById(R.id.veggie_image_view)
-        val spicyImageView: ImageView = view.findViewById(R.id.spicy_image_view)
 
-        fun bind(dish: Dish) {
+        fun bind(clickListener: DishListener, dish: Dish) {
+            binding.clickListener = clickListener
             binding.dish = dish
             binding.executePendingBindings()
         }
@@ -42,17 +41,26 @@ class MenuItemAdapter:
 
         val layoutInflater = LayoutInflater.from(parent.context)
 
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.menu_item, parent, false)
 
-        return MenuItemViewHolder(adapterLayout, MenuItemBinding.inflate(layoutInflater, parent, false))
+        return MenuItemViewHolder(MenuItemBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         val dish = getItem(position)
-        holder.bind(dish)
+        holder.bind(clickListener, dish)
     }
-    }
+}
+
+    class DishListener(val clickListener: (dish: Dish, isChecked: Boolean) -> Unit) {
+        fun onClick(dish: Dish, view: View) {
+            if (view is CheckBox) {
+                val checked: Boolean = view.isChecked
+                clickListener(dish, checked)
+                }
+            }
+        }
+
+
 
 
 

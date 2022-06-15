@@ -6,6 +6,7 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.shafakhouse.R.drawable.the_cat_is_fat
 import com.example.shafakhouse.adapter.MenuItemAdapter
 import com.example.shafakhouse.model.Dish
 import com.example.shafakhouse.model.DishApiStatus
@@ -18,7 +19,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         imgView.load(imgUri) {
             placeholder(R.drawable.image_pending)
-            error(R.drawable.the_cat_is_fat)
+            error(the_cat_is_fat)
         }
     }
 }
@@ -40,7 +41,7 @@ fun bindStatus(statusImageView: ImageView,
         }
         DishApiStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.the_cat_is_fat)
+            statusImageView.setImageResource(the_cat_is_fat)
         }
         DishApiStatus.DONE -> {
             statusImageView.visibility = View.GONE
