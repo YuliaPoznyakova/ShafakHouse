@@ -95,6 +95,10 @@ class OrderViewModel: ViewModel() {
         return options
     }
 
+    fun updateCurrentDish(dish: Dish) {
+        _currentDish.value = dish
+    }
+
     fun resetOrder() {
         _typeDish.value = mutableListOf()
         _quantity.value = 0

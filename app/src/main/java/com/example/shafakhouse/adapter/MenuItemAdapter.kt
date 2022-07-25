@@ -8,12 +8,13 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.shafakhouse.R
 import com.example.shafakhouse.databinding.MenuItemBinding
 import com.example.shafakhouse.model.Dish
 
 
-class MenuItemAdapter(val clickListener: DishListener):
+class MenuItemAdapter(val clickListener: DishListener, private val onItemClicked: (Dish) -> Unit):
     ListAdapter<Dish, MenuItemAdapter.MenuItemViewHolder>(DiffCallback) {
 
     class MenuItemViewHolder(
@@ -24,6 +25,8 @@ class MenuItemAdapter(val clickListener: DishListener):
             binding.clickListener = clickListener
             binding.dish = dish
             binding.executePendingBindings()
+            binding.itemImage.load(dish.imgSrcUrl)
+            binding.itemTitle.text = dish.name
         }
     }
 
@@ -48,6 +51,9 @@ class MenuItemAdapter(val clickListener: DishListener):
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         val dish = getItem(position)
         holder.bind(clickListener, dish)
+        holder.itemView.setOnClickListener {
+            onItemClicked(dish)
+        }
     }
 }
 

@@ -8,5 +8,7 @@ data class Dish(
     val price: Int,
     val spicy: Boolean,
     val veggie: Boolean,
-    val variant: String
+    val variant: String,
+    val content: String,
+    val description: String
 )

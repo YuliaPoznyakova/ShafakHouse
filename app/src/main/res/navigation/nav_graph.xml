@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_menuFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_detailDishFragment"
+            app:destination="@id/detailDishFragment" />
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
@@ -34,5 +37,13 @@
         <action
             android:id="@+id/action_finishFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailDishFragment"
+        android:name="com.example.shafakhouse.DetailDishFragment"
+        android:label="DetailDishFragment" >
+        <action
+            android:id="@+id/action_detailDishFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
 </navigation>
