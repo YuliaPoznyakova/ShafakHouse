@@ -10,8 +10,6 @@ import com.example.shafakhouse.R.drawable.the_cat_is_fat
 import com.example.shafakhouse.adapter.MenuItemAdapter
 import com.example.shafakhouse.model.Dish
 import com.example.shafakhouse.model.DishApiStatus
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

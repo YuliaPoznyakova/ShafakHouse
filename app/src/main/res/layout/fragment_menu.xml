@@ -28,9 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:listData="@{viewModel.dishObjects}"/>
 
-
-
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/status_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,13 +38,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:dishApiStatus="@{viewModel.status}" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/purchase_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/purchase"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/grid_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -59,6 +57,7 @@
 
 
         </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+
 
 
 </layout>

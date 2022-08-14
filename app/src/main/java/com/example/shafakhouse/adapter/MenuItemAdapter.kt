@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.shafakhouse.R
 import com.example.shafakhouse.databinding.MenuItemBinding
 import com.example.shafakhouse.model.Dish
 
@@ -43,7 +41,6 @@ class MenuItemAdapter(val clickListener: DishListener, private val onItemClicked
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-
 
         return MenuItemViewHolder(MenuItemBinding.inflate(layoutInflater, parent, false))
     }

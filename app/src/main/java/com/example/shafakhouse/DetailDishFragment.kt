@@ -25,9 +25,6 @@ class DetailDishFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentDetailFoodBinding.bind(view)
-
-        // Attach an observer on the currentSport to update the UI automatically when the data
-        // changes.
         viewModel.currentDish.observe(this.viewLifecycleOwner) {
             binding.titleDetail.text = it.name
             binding.dishImageDetail.load(it.imgSrcUrl)

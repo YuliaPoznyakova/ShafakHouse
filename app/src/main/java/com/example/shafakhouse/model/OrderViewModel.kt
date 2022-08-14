@@ -1,22 +1,17 @@
 package com.example.shafakhouse.model
 
-import android.view.View
-import android.widget.CheckBox
-import android.widget.Toast
-import androidx.databinding.Bindable
-import androidx.lifecycle.*
-import com.example.shafakhouse.R
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.shafakhouse.network.DishApi
 import kotlinx.coroutines.launch
-import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 enum class DishApiStatus { LOADING, ERROR, DONE }
 
 class OrderViewModel: ViewModel() {
-
 
     private val _status = MutableLiveData<DishApiStatus>()
     val status: LiveData<DishApiStatus> = _status
@@ -45,7 +40,6 @@ class OrderViewModel: ViewModel() {
 
     val dateOptions = getPickupOptions()
 
-
     init {
         getDish()
         resetOrder()
@@ -63,7 +57,6 @@ class OrderViewModel: ViewModel() {
             }
         }
     }
-
 
     fun setTypeDish(typeDish: String) {
         _typeDish.value?.add(typeDish)
@@ -87,7 +80,6 @@ class OrderViewModel: ViewModel() {
         val options = mutableListOf<String>()
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
-        // Create a list of dates starting with the current date and the following 3 dates
         repeat(4) {
             options.add(formatter.format(calendar.time))
             calendar.add(Calendar.DATE, 1)
@@ -104,6 +96,5 @@ class OrderViewModel: ViewModel() {
         _quantity.value = 0
         _date.value = dateOptions[0]
     }
-
 }
 

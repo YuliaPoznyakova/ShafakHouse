@@ -43,7 +43,7 @@ class FinishFragment : Fragment() {
 
     fun cancelOrder() {
         sharedViewModel.resetOrder()
-        findNavController().navigate(R.id.action_finishFragment_to_welcomeFragment)
+        findNavController().navigate(R.id.action_finishFragment_to_menuFragment)
     }
 
     fun sendOrder() {

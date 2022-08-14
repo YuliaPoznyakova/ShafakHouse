@@ -28,18 +28,16 @@ class MenuFragment : Fragment() {
 
         val slidingPaneLayout = binding.slidingPaneLayout
 
-
         binding.lifecycleOwner = this
 
         binding.viewModel = sharedViewModel
 
         slidingPaneLayout.lockMode = SlidingPaneLayout.LOCK_MODE_LOCKED
-        // Connect the SlidingPaneLayout to the system back button.
+
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             MenuOnBackPressedCallback(slidingPaneLayout)
         )
-
 
         binding.gridRecyclerView.adapter = MenuItemAdapter(DishListener { dish, isChecked ->
             if (isChecked) {
@@ -48,15 +46,15 @@ class MenuFragment : Fragment() {
                 sharedViewModel.removeTypeDish(dish.name)
             }
             sharedViewModel.setQuantity()
-        },
-            { dish -> sharedViewModel.updateCurrentDish(dish)
-                binding.slidingPaneLayout.openPane()})
-
+        }) {
+        dish ->
+        sharedViewModel.updateCurrentDish(dish)
+        binding.slidingPaneLayout.openPane()
+        }
 
         binding.apply {
             purchaseButton.setOnClickListener { goToNextScreen() }
         }
-
 
         return binding.root
     }
@@ -69,8 +67,6 @@ class MenuFragment : Fragment() {
     class MenuOnBackPressedCallback(
         private val slidingPaneLayout: SlidingPaneLayout
     ) : OnBackPressedCallback(
-        // Set the default 'enabled' state to true only if it is slidable (i.e., the panes
-        // are overlapping) and open (i.e., the detail pane is visible).
         slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen
     ), SlidingPaneLayout.PanelSlideListener {
 
@@ -79,21 +75,16 @@ class MenuFragment : Fragment() {
         }
 
         override fun handleOnBackPressed() {
-            // Return to the list pane when the system back button is pressed.
             slidingPaneLayout.closePane()
         }
 
         override fun onPanelSlide(panel: View, slideOffset: Float) {}
 
         override fun onPanelOpened(panel: View) {
-            // Intercept the system back button when the detail pane becomes visible.
             isEnabled = true
         }
 
         override fun onPanelClosed(panel: View) {
-            // Disable intercepting the system back button when the user returns to the
-            // list pane.
             isEnabled = false
         }
-
     }
