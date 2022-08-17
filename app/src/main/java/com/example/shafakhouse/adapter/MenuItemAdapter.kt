@@ -12,15 +12,16 @@ import com.example.shafakhouse.databinding.MenuItemBinding
 import com.example.shafakhouse.model.Dish
 
 
-class MenuItemAdapter(val clickListener: DishListener, private val onItemClicked: (Dish) -> Unit):
+class MenuItemAdapter(val dishViewClickListener: DishViewListener, val dishCheckboxClickListener: DishCheckboxListener, private val onItemClicked: (Dish) -> Unit):
     ListAdapter<Dish, MenuItemAdapter.MenuItemViewHolder>(DiffCallback) {
 
     class MenuItemViewHolder(
         private var binding: MenuItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(clickListener: DishListener, dish: Dish) {
-            binding.clickListener = clickListener
+        fun bind(dishCheckboxClickListener: DishCheckboxListener, dishViewClickListener: DishViewListener, dish: Dish) {
+            binding.dishCheckboxClickListener = dishCheckboxClickListener
+            binding.dishViewClickListener = dishViewClickListener
             binding.dish = dish
             binding.executePendingBindings()
             binding.itemImage.load(dish.imgSrcUrl)
@@ -47,21 +48,25 @@ class MenuItemAdapter(val clickListener: DishListener, private val onItemClicked
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         val dish = getItem(position)
-        holder.bind(clickListener, dish)
+        holder.bind(dishCheckboxClickListener, dishViewClickListener, dish)
         holder.itemView.setOnClickListener {
             onItemClicked(dish)
         }
     }
 }
 
-    class DishListener(val clickListener: (dish: Dish, isChecked: Boolean) -> Unit) {
-        fun onClick(dish: Dish, view: View) {
-            if (view is CheckBox) {
-                val checked: Boolean = view.isChecked
-                clickListener(dish, checked)
-                }
-            }
+class DishCheckboxListener(val dishCheckboxClickListener: (dish: Dish, isChecked: Boolean) -> Unit) {
+    fun onClick(dish: Dish, view: View) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+            dishCheckboxClickListener(dish, checked)
         }
+    }
+}
+
+class DishViewListener(val dishViewClickListener: (dish: Dish) -> Unit) {
+    fun onClick(dish: Dish) = dishViewClickListener(dish)
+}
 
 
 

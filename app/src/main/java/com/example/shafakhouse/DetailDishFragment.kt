@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import coil.load
-import com.example.shafakhouse.databinding.FragmentDetailFoodBinding
+import com.example.shafakhouse.databinding.FragmentDetailDishBinding
 import com.example.shafakhouse.model.OrderViewModel
 
 
@@ -19,17 +18,9 @@ class DetailDishFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentDetailFoodBinding.inflate(inflater, container, false).root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentDetailFoodBinding.bind(view)
-        viewModel.currentDish.observe(this.viewLifecycleOwner) {
-            binding.titleDetail.text = it.name
-            binding.dishImageDetail.load(it.imgSrcUrl)
-            binding.contentDetail.text = it.content
-            binding.descriptionDetail.text = it.description
-        }
+        val binding = FragmentDetailDishBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        return binding.root
     }
 }

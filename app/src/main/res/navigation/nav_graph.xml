@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/finishFragment"
         android:name="com.example.shafakhouse.FinishFragment"
-        android:label="                                                                                                                                    "
+        android:label="PURCHASE"
         tools:layout="@layout/fragment_finish">
         <action
             android:id="@+id/action_finishFragment_to_menuFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/detailDishFragment"
         android:name="com.example.shafakhouse.DetailDishFragment"
-        android:label="DetailDishFragment" >
+        android:label="DISH INFO">
         <action
             android:id="@+id/action_detailDishFragment_to_menuFragment"
             app:destination="@id/menuFragment" />

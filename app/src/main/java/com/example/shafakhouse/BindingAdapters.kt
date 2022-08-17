@@ -11,6 +11,7 @@ import com.example.shafakhouse.adapter.MenuItemAdapter
 import com.example.shafakhouse.model.Dish
 import com.example.shafakhouse.model.DishApiStatus
 
+
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {

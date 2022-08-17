@@ -17,8 +17,11 @@
             name="menuFragment"
             type="com.example.shafakhouse.MenuFragment" />
         <variable
-            name="clickListener"
-            type="com.example.shafakhouse.adapter.DishListener" />
+            name="dishCheckboxClickListener"
+            type="com.example.shafakhouse.adapter.DishCheckboxListener" />
+        <variable
+            name="dishViewClickListener"
+            type="com.example.shafakhouse.adapter.DishViewListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -31,7 +34,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menu_item_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> dishViewClickListener.onClick(dish)}">
 
             <ImageView
                 android:id="@+id/item_image"
@@ -66,7 +70,7 @@
                 android:layout_marginStart="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:onClick="@{() -> clickListener.onClick(dish, checkDishBox)}" />
+                android:onClick="@{() -> dishCheckboxClickListener.onClick(dish, checkDishBox)}" />
 
             <ImageView
                 android:id="@+id/spicy_image_view"

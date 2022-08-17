@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.shafakhouse.MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DetailDishFragment">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.shafakhouse.model.OrderViewModel" />
+        <variable
+            name="dish"
+            type="com.example.shafakhouse.model.Dish" />
+    </data>
+
+<com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
@@ -21,7 +33,8 @@
             android:contentDescription="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{viewModel.currentDish.imgSrcUrl}"/>
 
         <TextView
             android:id="@+id/titleDetail"
@@ -32,7 +45,8 @@
             android:gravity="center"
             app:layout_constraintBottom_toTopOf="@+id/dishTitleDetail"
             app:layout_constraintTop_toBottomOf="@+id/dishImageDetail"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@{viewModel.currentDish.name}"/>
 
         <TextView
             android:id="@+id/dishTitleDetail"
@@ -51,7 +65,8 @@
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dishTitleDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/dishTitleDetail"
+            tools:text="@{viewModel.currentDish.description}"/>
 
         <TextView
             android:id="@+id/contentTitleDetail"
@@ -71,8 +86,10 @@
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contentTitleDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/contentTitleDetail"
+            tools:text="@{viewModel.currentDish.content}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
+</layout>

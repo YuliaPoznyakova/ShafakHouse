@@ -69,7 +69,7 @@ class OrderViewModel: ViewModel() {
     }
 
     fun setQuantity() {
-            _quantity.value = _typeDish.value!!.size
+        _quantity.value = _typeDish.value!!.size
     }
 
     fun setDate(pickupDate: String) {
